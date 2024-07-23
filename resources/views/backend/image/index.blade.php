@@ -51,7 +51,7 @@
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Tambah Slider</h5>
+                    <h5 class="modal-title">Tambah Gambar</h5>
                     <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
                         <i data-feather="x"></i>
                     </button>
@@ -80,9 +80,8 @@
         aria-labelledby="myModalLabel1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <div class="card">
-                    <img src="" class="card-img" alt="" srcset="">
-                </div>
+                <img src="" class="card-img w-100" alt="" srcset="">
+                
             </div>
         </div>
     </div>

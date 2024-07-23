@@ -3,70 +3,128 @@
     <section class="hero">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mt-4 py-4">
-                    <h1 class="fw-bold text-white">
-                        Universitas Bina Taruna
-                    </h1>
-                    <h2 class="mt-3"><span class="bg-blue text-white p-2 rounded-4 fw-bold">Kampus Pelopor Inovasi</span></h2>
-                    <p class="mt-4 text-white">Cerdas Spiritual (SIQ), Intelektual (IQ),
-                        Emosional (EQ) dan Sosial (SQ).</p>
+                <div class="col-lg-8 text-center mt-4 py-4 content-hero">
+                    <h2 class="fw-bold text-white title-website">
+                        {{$app->title}}
+                    </h2>
+                    <h6 class="mt-3"><span class="bg-primary text-white p-2 rounded-4 fw-bold">UNIVERSITAS BINA TARUNA GORONTALO</span></h6>
+                   
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-2 col-4 mt-4 py-3">
+                <div class="col-lg-2 col-4 content-hero mt-4 py-3">
                     <img src="{{ asset('frontend/img/1.webp') }}" class="animasi" alt="" srcset="">
                 </div>
-                <div class="col-lg-2 col-4">
+                <div class="col-lg-2 col-4 content-hero">
                     <img src="{{ asset('frontend/img/2.webp') }}" class="animasi" alt="" srcset="">
                 </div>
-                <div class="col-lg-2 col-4 mt-4 py-3">
+                <div class="col-lg-2 col-4 content-hero mt-4 py-3">
                     <img src="{{ asset('frontend/img/3.webp') }}" class="animasi" alt="" srcset="">
                 </div>
             </div>
         </div>
     </section>
-
+    <section class="bg-dark p-4 " id="statistik">
+        <div class="row justify-content-center">
+            <h5 class="text-white content-hero text-center mb-2">VISI 2035 "Menjadi Fakultas yang Unggul dan Berdaya Saing dalam Pengembangan Bidang Keteknikan berbasis Potensi Kawasan di Wilayah Timur Indonesia"</h5>
+            <div class="col-md-3 col-12 mt-3">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="label">Total Mahasiswa</div>
+                        <div class="number">{{$app->total_mahasiswa}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-12 mt-3">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="label">Total Lulusan</div>
+                        <div class="number">{{$app->total_lulusan}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-12 mt-3">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="label">Total Program Studi</div>
+                        <div class="number">{{$prodi->count()}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-12 mt-3">
+                <div class="card card-custom">
+                    <div class="card-body">
+                        <div class="icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="label">Tenaga Pengajar</div>
+                        <div class="number">{{$app->total_pengajar}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="artikel mt-4 py-4">
-        <h2 class="text-center "><span class="fw-bold bg-blue text-white p-2 rounded-4">Artikel Terbaru</span></h2>
-        <div class="container bg-blue p-4 mt-4 rounded-3">
-            <a href="{{Route('artikel')}}" class="btn btn-light mb-3 fw-bold">Lihat Lebih Banyak</a>
-            <div class="row justify-content-start">
-                @foreach ($post as $pst)
-                    <div class="col-lg-4 mb-2">
-                        <div class="card border-0 rounded-2">
-                            <img src="{{ asset($pst->image) }}" class="card-img-top rounded-2" alt="...">
-                            <div class="card-body">
-
-                                <h6 class="mb-2 fw-bold mt-2">{{ $pst->title }}</h6>
-                                <small>
-                                    {{ $limitedText = Str::limit($pst->deskripsi, 50) }}
-                                    @if (strlen($limitedText) > 50)
-                                        {{ $limitedText }}
-                                    @endif
-                                </small><br>
-                                <span class="mb-2 text-dark"><i class="fa fa-calendar"></i><span class="ms-2">{{ \Carbon\Carbon::parse($pst->created_at)->translatedFormat('d F Y') }}</span></span>
-                                <br>
-                                <a href="{{ route('post.detail', $pst->slug) }}"
-                                    class="btn bg-blue text-white mt-1 fw-bold">Lihat Artikel</a>
+        <h4 class="text-center "><span class="fw-bold bg-primary text-white p-2 rounded-4">Berita Dan Informasi</span></h4>
+        @if ($post->count() > 0)
+            <div class="container p-4 mt-4 rounded-3">
+                <a href="{{Route('artikel')}}" class="bg-primary p-2 rounded-4 text-white  mb-3 fw-bold">Lihat Lebih Banyak</a>
+                <div class="row justify-content-start mt-3">
+                    @foreach ($post as $pst)
+                        <div class="col-lg-4 mb-2">
+                            <div class="card border-0 rounded-2 shadow">
+                                <div class="card-body">
+                                    <img src="{{ asset($pst->image) }}" class="card-img-top rounded-2 mb-3" alt="...">
+                                    <span class="mb-2 text-dark"><i class="fa fa-calendar"></i><span class="ms-2">{{ \Carbon\Carbon::parse($pst->created_at)->translatedFormat('d F Y') }}</span></span>
+                                    <h6 class="mb-2 fw-bold mt-2">{{ $pst->title }}</h6>
+                                    <small>
+                                        {{ $limitedText = Str::limit($pst->deskripsi, 50) }}
+                                        @if (strlen($limitedText) > 50)
+                                            {{ $limitedText }}
+                                        @endif
+                                    </small><br>
+                                    
+                                    <br>
+                                    <a href="{{ route('post.detail', $pst->slug) }}"
+                                        class="bg-primary p-2 text-white fw-bold rounded" style="text-decoration: none">Lihat Artikel</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
 
+                </div>
+                @if ($post->previousPageUrl())
+                    <a href="{{ $post->previousPageUrl() }}" class="mb-2 mt-3 btn btn-light"><i class="fa fa-arrow-left"></i>
+                        Prev</a>
+                @endif
+                @if ($post->nextPageUrl())
+                    <a href="{{ $post->nextPageUrl() }}" class="ms-2 mb-2 mt-3 btn btn-light"><i class="fa fa-arrow-right"></i>
+                        Next</a>
+                @endif
             </div>
-            @if ($post->previousPageUrl())
-                <a href="{{ $post->previousPageUrl() }}" class="mb-2 mt-3 btn btn-light"><i class="fa fa-arrow-left"></i>
-                    Prev</a>
-            @endif
-            @if ($post->nextPageUrl())
-                <a href="{{ $post->nextPageUrl() }}" class="ms-2 mb-2 mt-3 btn btn-light"><i class="fa fa-arrow-right"></i>
-                    Next</a>
-            @endif
-        </div>
+        @else
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-6">
+                    <div class="bg-danger p-4 rounded text-white  fw-bold   text-center">
+                        Berita Dan Informasi Masih Kosong <i class="fa fa-exclamation"></i>
+                    </div>
+                </div>
+            </div>
+        @endif
     </section>
    
     <section class="fakultas mt-4 py-4 container">
-        <h2 class="text-center mb-4"><span class="fw-bold bg-blue text-white p-2 rounded-4">Informasi Fakultas</span></h2>
+        <h4 class="text-center mb-4"><span class="fw-bold bg-primary text-white p-2 rounded-4">Informasi Fakultas</span></h4>
+        
         <div class="row justify-content-center">
             @forelse ($fakultas as $fkt)
                 <div class="col-lg-12">
@@ -86,7 +144,7 @@
                                     @endif
                                 </p>
                                 <div class="card-body">
-                                    <a href="{{ route('post.detail', $fkt->slug) }}" class="btn bg-blue text-white fw-bold">Selengkapnya</a>
+                                    <a href="{{ route('post.detail', $fkt->slug) }}" class="btn bg-primary text-white fw-bold">Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +160,7 @@
         </div>
     </section>
     <section class="portofolio mt-4 py-4 container">
-        <h2 class="text-center mb-4"><span class="fw-bold bg-blue text-white p-2 rounded-4">Portofolio</span></h2>
+        <h4 class="text-center mb-4"><span class="fw-bold bg-primary text-white p-2 rounded-4">Galery</span></h4>
         <div class="row justify-content-center">
             @if ($slider->count() > 0)
                 <div class="col-lg-12">
@@ -119,14 +177,14 @@
             @else
                 <div class="col-lg-6">
                     <div class="bg-danger p-4 rounded text-white  fw-bold   text-center">
-                        Data Portofilio Masih Kosong <i class="fa fa-exclamation"></i>
+                        Data Galery Masih Kosong <i class="fa fa-exclamation"></i>
                     </div>
                 </div>
             @endif
         </div>
     </section>
     <section class="kontak mt-4 py-4 container mb-4">
-        <h2 class="text-center mb-4"><span class="fw-bold bg-blue text-white p-2 rounded-4">Kontak</span></h2>
+        <h4 class="text-center mb-4"><span class="fw-bold bg-primary text-white p-2 rounded-4">Kontak</span></h4>
         <p class="text-center">Kami siap membantu Anda dengan segala pertanyaan dan informasi yang diperlukan. Jangan ragu untuk menghubungi kami kapan saja. Kami senang bisa menjadi bagian dari perjalanan Anda. Terima kasih.</p>
         <div class="container  p-4 mt-4 rounded-3">
             <div class="row justify-content-center">
@@ -173,7 +231,7 @@
                             <textarea placeholder="Deskripsi" name="" class="form-control" id="deskripsi" cols="50"
                                 rows="50"></textarea>
                         </div>
-                        <button onclick="return alertError()" class="btn bg-blue w-100 text-white fw-bold">simpan</button>
+                        <button onclick="return alertError()" class="btn bg-primary w-100 text-white fw-bold">simpan</button>
                 </div>
             </div>
         </div>

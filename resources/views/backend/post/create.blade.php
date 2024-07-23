@@ -45,34 +45,8 @@
             </div>
         </div>
     </section>
-    <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Daftar Gambar</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row gallery" data-bs-toggle="modal" data-bs-target="#galleryModal">
-                        @foreach ($data as $item)
-                        <div class="col-6 col-sm-6 col-lg-3 mt-2 mt-md-0 mb-md-0 mb-2">
-                            <a href="#">
-                                <img class="w-100 active" src="{{asset($item->image)}}"  data-bs-target="#Gallerycarousel" data-bs-slide-to="0">
-                            </a>
-                                <a href="javascript:void(0)" class="w-100 btn btn-primary mt-1" onclick="return copyToClipboard('{{asset($item->image)}}')">Salin Gambar<i class="bi bi-clipboard ms-2"></i></a>
-                        </div>
-                        @endforeach
-                    </div>
-                    {{$data->links()}}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+   @include('backend.components.modal-image')
+   
     <script>
         const  copyToClipboard = (text) => {
             navigator.clipboard.writeText(text);

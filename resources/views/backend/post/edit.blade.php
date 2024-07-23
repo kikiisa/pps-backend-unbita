@@ -21,6 +21,9 @@
                                 <div class="form-group">
                                     <label for="">Content</label>
                                     <textarea name="content" id="summernote" placeholder="konten">{{$data->content}}</textarea>
+                                    <a href="javascript:void(0)" class="mt-1 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#add">
+                                        Tambah Gambar
+                                    </a>
                                 </div>
                                 <div class="form-group">
                                     <label for="category">Category</label>
@@ -48,6 +51,7 @@
             </div>
         </div>
     </section>
+    @include('backend.components.modal-image')
     <script src="{{asset('template/vendor/jquery.min.js')}}"></script>
     <script src="{{asset('template/vendor/summernote/summernote.min.js')}}"></script>
     <script>

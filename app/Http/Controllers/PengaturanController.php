@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengaturan;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -55,7 +56,8 @@ class PengaturanController extends Controller
     public function about()
     {
         $app = Pengaturan::all()->first();
-        return response()->view('frontend.about.index',compact('app'));   
+        $prodi = Prodi::all();
+        return response()->view('frontend.about.index',compact('app','prodi'));   
     }
 
     /**

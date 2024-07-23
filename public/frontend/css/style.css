@@ -3,8 +3,8 @@ body {
     background-color: #ffffff;
 }
 
-.bg-blue {
-    background-color: #682be0;
+.bg-primary {
+    background-color: #FFB200 !important;
 }
 
 .font-blue {
@@ -53,14 +53,43 @@ body {
     background-color: #682be0;
 }
 
+#statistik {
+    margin-top: -1px;
+    
+}
+/* 
+.title-website{
+    text-shadow: 
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+   -2px  2px 0 #000,
+    2px  2px 0 #000,
+   -2px  0px 0 #000,
+    2px  0px 0 #000,
+    0px -2px 0 #000,
+    0px  2px 0 #000;
+} */
+
 .hero {
     margin-top: 100px;
-    border-bottom-left-radius: 20px;
-    background-image: radial-gradient(circle 815px at 23.4% -21.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%);
+    
+    /* background-image: radial-gradient(circle 815px at 23.4% -21.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%); */
+    background-image: url("/template/assets/images/hitam.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;   
+    overflow: hidden; /* Untuk memastikan overlay tidak keluar dari elemen .hero */
+    /* height: 100vh; Atau sesuai kebutuhan ketinggian elemen hero */
+}
+
+.content-hero {
+    z-index: 2; /* Pastikan konten berada di atas overlay */
+    color: white;    
 }
 
 .content {
     margin-top: 150px;
+    
 }
 
 
@@ -94,7 +123,7 @@ footer {
 
 .form-control:focus {
     box-shadow: none;
-    border-color: #682DDF;
+    border-color: #FFB200;
 }
 
 swiper-slide {
@@ -131,4 +160,26 @@ swiper-slide {
 #social-links ul li a:hover {
     background-color: #8950fc;
     /* Tambahan gaya saat tombol dihover */
+}
+
+.card-custom {
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-custom .card-body {
+    text-align: center;
+}
+.card-custom .card-body .number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFB200;
+}
+.card-custom .card-body .label {
+    font-size: 1.2rem;
+    color: #888;
+}
+.card-custom .card-body .icon {
+    font-size: 3rem;
+    color: #FFB200;
+    margin-bottom: 10px;
 }

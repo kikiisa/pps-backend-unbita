@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
@@ -30,10 +31,10 @@ Route::get('/logout',[AuthController::class,'logout'])->name('auth.logout');
 Route::get('/post/{slug}',[PostController::class,'show'])->name('post.detail');
 Route::get('/tentang-kami',[PengaturanController::class,'about'])->name('about');
 Route::get('/artikel',[BerandaController::class,'artikel'])->name('artikel');
+Route::get("/informasi/{slug}",[BerandaController::class,"informasi"])->name("information");
+
 
 Route::prefix('account')->group(function(){
-    
-    
     Route::middleware('auth')->group(function(){
         Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
         Route::resource('post',PostController::class);
@@ -41,5 +42,6 @@ Route::prefix('account')->group(function(){
         Route::resource('pengaturan',PengaturanController::class);
         Route::resource('slider',SliderController::class);
         Route::resource('image',ImageController::class);
+        Route::resource("management-prodi",ProdiController::class);
     });
 });

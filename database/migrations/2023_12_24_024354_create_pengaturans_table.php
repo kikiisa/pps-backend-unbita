@@ -21,6 +21,10 @@ return new class extends Migration
             $table->text('about');
             $table->text('visi_misi');
             $table->string('phone');
+            $table->string("total_mahasiswa");
+            $table->string("total_pengajar");
+            $table->string("total_lulusan");
+            $table->string("total_prodi");
             $table->timestamps();
         });
     }

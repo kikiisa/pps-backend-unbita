@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\Pengaturan;
 use App\Models\Post;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Uuid;
@@ -31,8 +32,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        $data = Image::paginate(10);
-        return response()->view('backend.post.create',compact('data'));
+        $image = Image::paginate(10);
+        return response()->view('backend.post.create',compact('image'));
     }
 
     /**
@@ -103,7 +104,7 @@ class PostController extends Controller
                 ]);
                 $request->session()->put($viewKey, true);
             }
-            return response()->view('frontend.detail.index', ['data' => $data->first(), 'app' => $app,'shareComponent' => $shareComponent]);
+            return response()->view('frontend.detail.index', ['data' => $data->first(), 'app' => $app,'shareComponent' => $shareComponent,'prodi' => Prodi::all()->take(3)]);
         }else{
             abort(404,'Maaf Data Postingan Tidak Di Temukan');
         }
@@ -118,7 +119,8 @@ class PostController extends Controller
     public function edit($id)
     {
         $data = Post::all()->where('uuid', $id)->first();
-        return response()->view('backend.post.edit', ['data' => $data]);
+        $image = Image::paginate(10);
+        return response()->view('backend.post.edit', ['data' => $data,"image" => $image]);
     }
 
     /**

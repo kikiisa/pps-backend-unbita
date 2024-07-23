@@ -68,6 +68,12 @@
                         <span>Master Image</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a href="{{ Route('management-prodi.index') }}" class='sidebar-link'>
+                        <i class="bi bi-box"></i>
+                        <span>Data Prodi</span>
+                    </a>
+                </li>
                 <li class="sidebar-title">Pengaturan</li>
                 <li class="sidebar-item">
                     <a href="{{ Route('pengaturan.index') }}" class='sidebar-link'>

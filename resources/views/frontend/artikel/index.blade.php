@@ -10,10 +10,11 @@
                     <h4></h4>
                     @foreach ($post as $pst)
                         <div class="col-lg-4 mb-2">
-                            <div class="card border-0 rounded-2">
-                                <img src="{{ asset($pst->image) }}" class="card-img-top rounded-2" alt="...">
+                            <div class="card border-0 rounded-2 shadow">
                                 <div class="card-body">
-
+                                    <img src="{{ asset($pst->image) }}" class="card-img-top rounded-2 mb-3" alt="...">
+                                    <span class="mb-2 text-dark"><i class="fa fa-calendar"></i><span
+                                            class="ms-2">{{ \Carbon\Carbon::parse($pst->created_at)->translatedFormat('d F Y') }}</span></span>
                                     <h6 class="mb-2 fw-bold mt-2">{{ $pst->title }}</h6>
                                     <small>
                                         {{ $limitedText = Str::limit($pst->deskripsi, 50) }}
@@ -21,21 +22,22 @@
                                             {{ $limitedText }}
                                         @endif
                                     </small><br>
-                                    <span class="mb-2 text-dark"><i class="fa fa-calendar"></i><span class="ms-2">{{ \Carbon\Carbon::parse($pst->created_at)->translatedFormat('d F Y') }}</span></span>
+
                                     <br>
                                     <a href="{{ route('post.detail', $pst->slug) }}"
-                                        class="btn bg-blue text-white mt-1 fw-bold">Lihat Artikel</a>
+                                        class="bg-primary p-2 text-white fw-bold rounded"
+                                        style="text-decoration: none">Lihat Artikel</a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                    {{$post->links()}}
+                    {{ $post->links() }}
                 </div>
             @else
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <div class="card border-0 bg-transparent">
-                            <img src="{{asset('frontend/img/404.png')}}" class="card-img" alt="" srcset="">
+                            <img src="{{ asset('frontend/img/404.png') }}" class="card-img" alt="" srcset="">
                             <div class="bg-danger p-4 text-white fw-bold text-center">Maaf, Data Tidak Di Temukan</div>
                         </div>
                     </div>
@@ -46,8 +48,7 @@
 
     <script src="{{ asset('template/vendor/swiper.min.js') }}"></script>
     <script>
-        const moveToPage = (params) =>
-        {
+        const moveToPage = (params) => {
             document.location.href = params
         }
     </script>
