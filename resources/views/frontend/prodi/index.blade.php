@@ -39,7 +39,8 @@
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
         }
-        .card{
+
+        .card {
             border-radius: 20px;
         }
     </style>
@@ -79,49 +80,75 @@
     <section class="mt-4 mb-4">
         <div class="container">
             <div class="row">
+                <div class="col-lg-6 mb-4 bg-white rounded-4">
+                    <div class="container p-3 fs-4" style="text-align: justify;">
+                        <h5 class="fw-bold">Tentang Administrasi Bisnis</h5>
+                        <hr>
+                        {!! $information->deskripsi !!}
+                    </div>
+                </div>
                 <div class="col-lg-6 mb-4">
                     <div class="card border-0">
-                        <div class="card-body">
-                            <h4 class="fw-bold">Kenapa Administrasi Bisnis ?</h4>
-                           s
+                        <div class="img">
+                            <img src="{{ $information->gambar }}" class="img-thumbnail" alt="" srcset="">
                         </div>
                     </div>
                 </div>
-    
                 <div class="col-lg-12">
                     <div class="card border-0">
                         <div class="card-body">
-                            
-                            <h6 class="fw-bold">Download File Document Program Studi</h6>
+                            <h4 class="fw-bold">Download File Document Program Studi</h4>
                             <table class="table">
                                 <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Nama Document</th>
-                                    <th scope="col">Download</th>
-                                    <th scope="col">Diupload</th>
-                                    <th scope="col">Diupdate</th>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nama Document</th>
+                                        <th scope="col">Download</th>
+                                        <th scope="col">Di upload</th>
+                                        <th scope="col">Di update</th>
 
-                                  </tr>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>File Akreditasi</td>
-                                    <td><a href="http://" class="btn btn-dark">Download</a></td>
-                                    <td>
-                                        {{ $information->created_at->diffForHumans() }} 
-                                    </td>
-                                    <td>
-                                        {{ $information->updated_at->diffForHumans() }} 
-                                    </td>
-                                  </tr>
-                                  
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>File Kurikulum</td>
+                                        <td><a href="{{ $information->documentKKU }}" class="btn btn-dark">Download</a>
+                                        </td>
+                                        <td>
+                                            {{ $information->created_at->diffForHumans() }}
+                                        </td>
+                                        <td>
+                                            {{ $information->updated_at->diffForHumans() }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>File Akreditasi</td>
+                                        <td><a href="{{ $information->documentAKR }}" class="btn btn-dark">Download</a>
+                                        </td>
+                                        <td>
+                                            {{ $information->created_at->diffForHumans() }}
+                                        </td>
+                                        <td>
+                                            {{ $information->updated_at->diffForHumans() }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>File Kurikulum</td>
+                                        <td><a href="{{ $information->dokumentKKU }}" class="btn btn-dark">Download</a>
+                                        </td>
+                                        <td>
+                                            {{ $information->created_at->diffForHumans() }}
+                                        </td>
+                                        <td>
+                                            {{ $information->updated_at->diffForHumans() }}
+                                        </td>
+                                    </tr>
+
                                 </tbody>
-                              </table>
-                            <div class="container">
-    
-                            </div>
+                            </table>
                         </div>
                     </div>
                 </div>

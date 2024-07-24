@@ -58,12 +58,16 @@ class BerandaController extends Controller
 
     public function informasi($slug)
     {
-        $prodi = Prodi::all();
+        $prodi = Prodi::all()->where("slug",$slug);
+        if($prodi->isEmpty())
+        {
+            return abort(404);
+        }
         $app = Pengaturan::all()->first();
         return response()->view('frontend.prodi.index',[
            "prodi" => $prodi,
            "app" => $app,
-           "information" => $prodi->where("slug",$slug)->first() 
+           "information" => $prodi->first() 
         ]);
     }
 }
