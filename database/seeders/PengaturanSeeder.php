@@ -25,7 +25,7 @@ class PengaturanSeeder extends Seeder
             "total_mahasiswa" => 0,
             "total_pengajar" => 0,
             "total_lulusan" => 0,
-            "total_prodi" => 0,
+           
         ]);
     }
 }

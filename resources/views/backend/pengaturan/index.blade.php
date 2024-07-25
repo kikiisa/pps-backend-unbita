@@ -39,6 +39,22 @@
                                     </div>
                                     <input type="file" name="icon" id="icon" class="form-control-file">
                                 </div>
+                                <div class="form-group">
+                                    <label for="total_mahasiswa">Total Mahasiswa</label>
+                                    <input type="text" class="form-control" value="{{$data->total_mahasiswa}}" id="total_mahasiswa" name="total_mahasiswa" placeholder="Masukkan total mahasiswa">
+                                </div>
+                                
+                                <!-- Total Pengajar -->
+                                <div class="form-group">
+                                    <label for="total_pengajar">Total Pengajar</label>
+                                    <input type="text" class="form-control" value="{{$data->total_pengajar}}" id="total_pengajar" name="total_pengajar" placeholder="Masukkan total pengajar">
+                                </div>
+                                
+                                <!-- Total Lulusan -->
+                                <div class="form-group">
+                                    <label for="total_lulusan">Total Lulusan</label>
+                                    <input type="text" class="form-control" id="total_lulusan" value="{{$data->total_lulusan}}" name="total_lulusan" placeholder="Masukkan total lulusan">
+                                </div>
                                 <button class="btn btn-primary">simpan</button>
                             </form>
                         </div>

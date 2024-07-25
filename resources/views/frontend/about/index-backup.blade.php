@@ -44,7 +44,7 @@
 </head>
 
 <body class="bg-body-tertiary">
-    <x-navbar></x-navbar>
+    @include('components.navbar')
     <section class="content mb-4">
         <div class="container">
             <div class="row justify-content-center">
@@ -74,10 +74,7 @@
             </div>
         </div>
     </section>
-    <footer class="bg-blue">
-        <div class="container fw-bold text-white text-center py-3">Copyright &copy; 2023 Bina Taruna Gorontalo | Pusat
-            IT</div>
-    </footer>
+    @include('components.footer')
     <script src="{{ asset('frontend/vendor/fontawesome/js/all.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fontawesome/js/brands.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fontawesome/js/regular.min.js') }}"></script>

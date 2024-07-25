@@ -59,12 +59,13 @@
     <section class="content mb-4">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8 mb-2">
                     <div class="card border-0">
                         <div class="card-body">
                             <h4 class="fw-bold">{{$data->title}}</h4>
                             <hr>
-                            <i class="fa fa-user"></i> Oleh : <strong>Administrator</strong>|<span class="ms-3 text-muted"><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($data->created_at)->translatedFormat('d F Y') }}</span>
+                            <i class="fa fa-user text-muted"></i> Oleh : <strong>Admin</strong><span class="ms-3 text-muted"><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($data->created_at)->translatedFormat('d F Y') }}</span>
+                        
                             <div class="row mt-4">
                                 <div class="col-lg-12">
                                     <div class="card border-0 bg-transparent">
@@ -75,28 +76,39 @@
                             <div class="post mt-4 fs-3">
                                 {!! $data->content !!}
                             </div>
-                            
+                        </div>
+                        <div class="card-footer">
+                            <p>Share Postingan Ini Ke Social Media</p>
+                            <hr>
+                            {!! $shareComponent !!}
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-4">
                     <div class="card border-0">
                         <div class="card-body">
-                            <div class="mt-4 text-start">
-                                <p>Share Postingan Ini Ke Social Media</p>
-                                <hr>
-                                {!! $shareComponent !!}
-                            </div>
+                            <h4 class="fw-bold"><i class="fa fa-list"></i> <span>Berita Lainya</span></h4>
+                            <hr>
+                            @foreach ($berita as $item)
+                                @if ($item->id != $data->id)
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <a style="text-decoration: none" href="{{route('post.detail', $item->slug)}}">{{$item->title}}</a>
+                                            <div class="text-muted"><i class="fa fa-calendar"></i> {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</div>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>
+               
             </div>
         </div>
     </section>
-    <footer class="bg-blue">
-        <div class="container fw-bold text-white text-center py-3">Copyright &copy; 2023 Bina Taruna Gorontalo | Pusat
-            IT</div>
-    </footer>
+    @include('components.footer')
+    
     <script src="{{ asset('frontend/vendor/fontawesome/js/all.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fontawesome/js/brands.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fontawesome/js/regular.min.js') }}"></script>

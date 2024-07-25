@@ -83,6 +83,7 @@ class PostController extends Controller
         
         $app = Pengaturan::all()->first();
         $data = Post::all()->where('slug', $id);
+       
         $shareComponent = \Share::page(
             request()->url(),
         )
@@ -104,7 +105,7 @@ class PostController extends Controller
                 ]);
                 $request->session()->put($viewKey, true);
             }
-            return response()->view('frontend.detail.index', ['data' => $data->first(), 'app' => $app,'shareComponent' => $shareComponent,'prodi' => Prodi::all()->take(3)]);
+            return response()->view('frontend.detail.index', ['data' => $data->first(), 'app' => $app,'shareComponent' => $shareComponent,'prodi' => Prodi::all()->take(5),'berita' => Post::orderBy("created_at","desc")->take(5)->get()]);
         }else{
             abort(404,'Maaf Data Postingan Tidak Di Temukan');
         }

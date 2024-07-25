@@ -1,5 +1,6 @@
 @extends('frontend.layouts.master', ['judul' => 'PPS - Home'])
 @section('content')
+
     <section class="hero">
         <div class="container">
             <div class="row justify-content-center">
@@ -103,12 +104,10 @@
 
                 </div>
                 @if ($post->previousPageUrl())
-                    <a href="{{ $post->previousPageUrl() }}" class="mb-2 mt-3 btn btn-light"><i class="fa fa-arrow-left"></i>
-                        Prev</a>
+                    <a href="{{ $post->previousPageUrl() }}" class="btn btn-warning text-white fw-bold"> <i class="fa fa-arrow-left"> </i> Prev</a>
                 @endif
                 @if ($post->nextPageUrl())
-                    <a href="{{ $post->nextPageUrl() }}" class="ms-2 mb-2 mt-3 btn btn-light"><i class="fa fa-arrow-right"></i>
-                        Next</a>
+                    <a href="{{ $post->nextPageUrl() }}" class="btn btn-warning text-white fw-bold">Next <i class="fa fa-arrow-right"></i></a>
                 @endif
             </div>
         @else
@@ -183,59 +182,7 @@
             @endif
         </div>
     </section>
-    <section class="kontak mt-4 py-4 container mb-4">
-        <h4 class="text-center mb-4"><span class="fw-bold bg-primary text-white p-2 rounded-4">Kontak</span></h4>
-        <p class="text-center">Kami siap membantu Anda dengan segala pertanyaan dan informasi yang diperlukan. Jangan ragu untuk menghubungi kami kapan saja. Kami senang bisa menjadi bagian dari perjalanan Anda. Terima kasih.</p>
-        <div class="container  p-4 mt-4 rounded-3">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 mt-4">
-                    <div class="card border-0 bg-transparent">
-                        <p>
-                            <a href="https://wa.me/{{$app->phone}}" class="link-social"><i class="fa fa-phone fa-2x"></i></a>
-                            <span class="ms-2">
-                                Whatsapps / Nomor Telepon
-                            </span>
-                        </p>
-                        <p>
-                            <a href="" class="link-social"><i class="fa fa-envelope fa-2x"></i></a>
-                            <span class="ms-2">
-                                E-Mail
-                            </span>
-                        </p>
-                        <p>
-                            <a href="" class="link-social"><i class="fa-brands fa-youtube   fa-2x"></i></a>
-                            <span class="ms-2">
-                                Youtube
-                            </span>
-                        </p>
-                        <p>
-                            <a href="" class="link-social"><i class="fa-brands fa-instagram   fa-2x"></i></a>
-                            <span class="ms-2">
-                                Instagram
-                            </span>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-4">
-                  
-                        <div class="form-group mb-3">
-                            <label class="fw-bold mb-2" for="nama">Nama Lengkap</label>
-                            <input type="text" placeholder="Nama Lengkap" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="fw-bold mb-2" for="email">Email</label>
-                            <input type="text" placeholder="Email" class="form-control">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="fw-bold mb-2" for="deskripsi">Deskripsi</label>
-                            <textarea placeholder="Deskripsi" name="" class="form-control" id="deskripsi" cols="50"
-                                rows="50"></textarea>
-                        </div>
-                        <button onclick="return alertError()" class="btn bg-primary w-100 text-white fw-bold">simpan</button>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <script src="{{ asset('template/vendor/swiper.min.js') }}"></script>
     <script src="{{ asset('template/assets/extensions/toastify-js/src/toastify.js') }}"></script>
     <script>

@@ -18,7 +18,7 @@ class PengaturanController extends Controller
     public function index()
     {
         $data = Pengaturan::all()->first();
-        return response()->view('backend.pengaturan.index',compact('data'));
+        return response()->view('backend.pengaturan.index', compact('data'));
     }
 
     /**
@@ -39,7 +39,6 @@ class PengaturanController extends Controller
      */
     public function store(Request $request)
     {
-        
     }
 
     /**
@@ -57,7 +56,7 @@ class PengaturanController extends Controller
     {
         $app = Pengaturan::all()->first();
         $prodi = Prodi::all();
-        return response()->view('frontend.about.index',compact('app','prodi'));   
+        return response()->view('frontend.about.index', compact('app', 'prodi'));
     }
 
     /**
@@ -81,15 +80,17 @@ class PengaturanController extends Controller
     public function update(Request $request, $id)
     {
         $data = Pengaturan::all()->first();
-        if($request->hasFile("icon"))
-        {
+        if ($request->hasFile("icon")) {
             $request->validate([
                 'icon' => 'required|file|mimes:png,webp,jpg,jpeg,gif|max:2048',
                 'title' => 'required',
                 'deskripsi' => 'required',
                 'phone' => 'required',
                 'visi_misi' => 'required',
-                'about' => 'required',           
+                'about' => 'required',
+                'total_mahasiswa' => 'required',
+                'total_pengajar' => 'required',
+                'total_lulusan' => 'required',
             ]);
             File::delete($data->icon);
             $file = $request->file("icon");
@@ -101,33 +102,41 @@ class PengaturanController extends Controller
                 'phone' => $request->phone,
                 'visi_misi' => $request->visi_misi,
                 'about' => $request->about,
-                'icon' => $this->path . '/' . $name
+                'total_mahasiswa' => $request->total_mahasiswa,
+                'total_pengajar' => $request->total_pengajar,
+                'total_lulusan' => $request->total_lulusan,
             ]);
-            if($data)
-            {
+            if ($data) {
                 return redirect()->route('pengaturan.index')->with('success', 'Pengaturan updated successfully');
-            }else{
+            } else {
                 return redirect()->back()->with('error', 'Something went wrong');
             }
-        }else{
+        } else {
             $request->validate([
                 'title' => 'required',
                 'deskripsi' => 'required',
                 'phone' => 'required',
                 'visi_misi' => 'required',
-                'about' => 'required',           
-            ]); 
+                'about' => 'required',
+                'total_mahasiswa' => 'required',
+                'total_pengajar' => 'required',
+                'total_lulusan' => 'required',
+               
+
+            ]);
             $data->update([
                 'title' => $request->title,
                 'deskripsi' => $request->deskripsi,
                 'phone' => $request->phone,
                 'visi_misi' => $request->visi_misi,
-                'about' => $request->about
+                'about' => $request->about,
+                'total_mahasiswa' => $request->total_mahasiswa,
+                'total_pengajar' => $request->total_pengajar,
+                'total_lulusan' => $request->total_lulusan,
             ]);
-            if($data)
-            {
+            if ($data) {
                 return redirect()->route('pengaturan.index')->with('success', 'Pengaturan updated successfully');
-            }else{
+            } else {
                 return redirect()->back()->with('error', 'Something went wrong');
             }
         }

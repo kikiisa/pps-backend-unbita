@@ -67,6 +67,7 @@ class BerandaController extends Controller
         return response()->view('frontend.prodi.index',[
            "prodi" => $prodi,
            "app" => $app,
+           
            "information" => $prodi->first() 
         ]);
     }

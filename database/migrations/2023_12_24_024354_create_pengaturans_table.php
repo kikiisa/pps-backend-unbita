@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string("total_mahasiswa");
             $table->string("total_pengajar");
             $table->string("total_lulusan");
-            $table->string("total_prodi");
             $table->timestamps();
         });
     }
