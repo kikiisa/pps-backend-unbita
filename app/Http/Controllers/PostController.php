@@ -48,7 +48,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'category' => 'required',
+           
             'deskripsi' => 'required',
             'image' => 'required|file|mimes:png,webp,jpg,jpeg,gif|max:2048'
         ]);
@@ -62,7 +62,7 @@ class PostController extends Controller
             'content' => $request->content,
             'image' => $this->path . '/' . $name,
             'deskripsi' => $request->deskripsi,
-            'category' => $request->category,
+            'category' => "post",
             'views' => 0
         ]);
         if ($send) {
@@ -139,7 +139,6 @@ class PostController extends Controller
             $request->validate([
                 'title' => 'required',
                 'content' => 'required',
-                'category' => 'required',
                 'deskripsi' => 'required',
                 'image' => 'required|file|mimes:png,webp,jpg,jpeg,gif|max:2048'
             ]);
@@ -153,7 +152,7 @@ class PostController extends Controller
                 'content' => $request->content,
                 'image' => $this->path . '/' . $nama,
                 'deskripsi' => $request->deskripsi,
-                'category' => $request->category,
+                'category' => "post",
             ]);
             if($data)
             {
@@ -165,7 +164,6 @@ class PostController extends Controller
             $request->validate([
                 'title' => 'required',
                 'content' => 'required',
-                'category' => 'required',
                 'deskripsi' => 'required',
             ]);
             $data->update([
@@ -173,7 +171,7 @@ class PostController extends Controller
                 'slug' => Str::slug($request->title),
                 'content' => $request->content,
                 'deskripsi' => $request->deskripsi,
-                'category' => $request->category,
+                'category' => "post",
             ]);
             if($data)
             {

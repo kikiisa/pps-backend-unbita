@@ -24,6 +24,11 @@ return new class extends Migration
             $table->string("total_mahasiswa");
             $table->string("total_pengajar");
             $table->string("total_lulusan");
+            $table->string('instagram')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('whatsapp')->nullable();
+            $table->string('tiktok')->nullable();
             $table->timestamps();
         });
     }

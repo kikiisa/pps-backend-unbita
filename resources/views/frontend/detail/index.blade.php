@@ -76,6 +76,7 @@
                             <div class="post mt-4 fs-3">
                                 {!! $data->content !!}
                             </div>
+                            
                         </div>
                         <div class="card-footer">
                             <p>Share Postingan Ini Ke Social Media</p>

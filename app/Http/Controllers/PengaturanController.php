@@ -91,6 +91,11 @@ class PengaturanController extends Controller
                 'total_mahasiswa' => 'required',
                 'total_pengajar' => 'required',
                 'total_lulusan' => 'required',
+                'instagram' => 'required',
+                'facebook' => 'required',
+                'youtube' => 'required',
+                'whatsapp' => 'required',
+                'tiktok' => 'required',
             ]);
             File::delete($data->icon);
             $file = $request->file("icon");
@@ -105,6 +110,11 @@ class PengaturanController extends Controller
                 'total_mahasiswa' => $request->total_mahasiswa,
                 'total_pengajar' => $request->total_pengajar,
                 'total_lulusan' => $request->total_lulusan,
+                'instagram' => $request->instagram,
+                'facebook' => $request->facebook,
+                'youtube' => $request->youtube,
+                'whatsapp' => $request->whatsapp,
+                'tiktok' => $request->tiktok,
             ]);
             if ($data) {
                 return redirect()->route('pengaturan.index')->with('success', 'Pengaturan updated successfully');
@@ -122,7 +132,11 @@ class PengaturanController extends Controller
                 'total_mahasiswa' => 'required',
                 'total_pengajar' => 'required',
                 'total_lulusan' => 'required',
-               
+                'instagram' => 'required',
+                'facebook' => 'required',
+                'youtube' => 'required',
+                'whatsapp' => 'required',
+                'tiktok' => 'required',
 
             ]);
             $data->update([
@@ -134,6 +148,11 @@ class PengaturanController extends Controller
                 'total_mahasiswa' => $request->total_mahasiswa,
                 'total_pengajar' => $request->total_pengajar,
                 'total_lulusan' => $request->total_lulusan,
+                'instagram' => $request->instagram,
+                'facebook' => $request->facebook,
+                'youtube' => $request->youtube,
+                'whatsapp' => $request->whatsapp,
+                'tiktok' => $request->tiktok,
             ]);
             if ($data) {
                 return redirect()->route('pengaturan.index')->with('success', 'Pengaturan updated successfully');

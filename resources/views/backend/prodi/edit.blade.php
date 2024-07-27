@@ -6,7 +6,12 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            
+                            <a href="javascript:void(0)" class="mb-3 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#add">
+                                Input Gambar
+                            </a>
+                            <a href="javascript:void(0)" class="mb-3 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#file">
+                                Input File
+                            </a>
                             <form method="POST" action="{{ route('management-prodi.update', $prodi->id) }}">
                                 @csrf
                                 @method('PUT')
@@ -36,16 +41,12 @@
                                 <div class="form-group">
                                     <label for="gambar">Gambar</label>
                                     <input type="text" class="form-control" id="gambar" name="gambar" value="{{ old('gambar', $prodi->gambar) }}" placeholder="Masukkan URL gambar">
-                                    <a href="javascript:void(0)" class="mt-1 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#add">
-                                        Tambah Gambar
-                                    </a>
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label for="struktur">Struktur</label>
                                     <input type="text" class="form-control" id="struktur" name="struktur" value="{{ old('struktur', $prodi->struktur) }}" placeholder="Masukkan struktur">
-                                    <a href="javascript:void(0)" class="mt-1 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#add">
-                                        Tambah Gambar
-                                    </a>
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
@@ -73,6 +74,7 @@
         </div>
     </section>
     @include('backend.components.modal-image')
+    @include('backend.components.modal-file')
     <script src="{{asset('template/vendor/jquery.min.js')}}"></script>
     <script src="{{asset('template/vendor/summernote/summernote.min.js')}}"></script>
     <script>

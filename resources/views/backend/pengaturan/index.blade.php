@@ -55,6 +55,26 @@
                                     <label for="total_lulusan">Total Lulusan</label>
                                     <input type="text" class="form-control" id="total_lulusan" value="{{$data->total_lulusan}}" name="total_lulusan" placeholder="Masukkan total lulusan">
                                 </div>
+                                <div class="form-group">
+                                    <label for="instagram">Instagram</label>
+                                    <input type="text" class="form-control" value="{{$data->instagram}}" id="instagram" name="instagram" placeholder="Masukkan instagram">
+                                </div>
+                                <div class="form-group">
+                                    <label for="facebook">Facebook</label>
+                                    <input type="text" class="form-control" value="{{$data->facebook}}" id="facebook" name="facebook" placeholder="Masukkan facebook">
+                                </div>
+                                <div class="form-group">
+                                    <label for="youtube">Youtube</label>
+                                    <input type="text" class="form-control" value="{{$data->youtube}}" id="youtube" name="youtube" placeholder="Masukkan youtube">
+                                </div>
+                                <div class="form-group">
+                                    <label for="whatsapp">Whatsapp</label>
+                                    <input type="text" class="form-control" value="{{$data->whatsapp}}" id="whatsapp" name="whatsapp" placeholder="Masukkan whatsapp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tiktok">Tiktok</label>
+                                    <input type="text" class="form-control" value="{{$data->tiktok}}" id="tiktok" name="tiktok" placeholder="Masukkan tiktok">
+                                </div>
                                 <button class="btn btn-primary">simpan</button>
                             </form>
                         </div>

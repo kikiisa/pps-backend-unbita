@@ -25,14 +25,7 @@
                                         Tambah Gambar
                                     </a>
                                 </div>
-                                <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <select name="category" id="" class="form-control">
-                                        <option value="">-- Choose Category --</option>
-                                        <option value="fakultas"  {{($data->category == 'fakultas') ? 'selected' : '' }}>Informasi Fakultas</option>
-                                        <option value="post" {{($data->category == 'post') ? 'selected' : ''}}>Post News</option>
-                                    </select>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="">Cover</label>
                                     <input type="file" name="image" id="image" class="form-control-file">
