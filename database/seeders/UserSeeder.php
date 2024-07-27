@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         User::create([
             'uuid' => Uuid::uuid4()->toString(),
             'name' => 'Admin',
-            'email' => 'admin@admin',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
         ]);
     }

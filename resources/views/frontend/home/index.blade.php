@@ -1,6 +1,7 @@
 @extends('frontend.layouts.master', ['judul' => 'PPS - Home'])
 @section('content')
-
+    <link rel="stylesheet" href="{{ asset('template/assets/extensions/simple-datatables/style.css')}}"/>
+    <link rel="stylesheet" href="{{ asset('template/assets/css/pages/simple-datatables.css')}}" />
     <section class="hero">
         <div class="container">
             <div class="row justify-content-center">
@@ -120,44 +121,6 @@
             </div>
         @endif
     </section>
-   
-    <section class="fakultas mt-4 py-4 container">
-        <h4 class="text-center mb-4"><span class="fw-bold bg-primary text-white p-2 rounded-4">Informasi Fakultas</span></h4>
-        
-        <div class="row justify-content-center">
-            @forelse ($fakultas as $fkt)
-                <div class="col-lg-12">
-                    <div class="row mt-4 mb-4">
-                        <div class="col-lg-5">
-                            <div class="card border-0 bg-transparent">
-                                <img src="{{ asset($fkt->image) }}" class="card-img-top rounded-5" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="card border-0 bg-transparent ">
-                                <h1 class="text-primary fw-bold">{{ $fkt->title }}</h1>
-                                <p class="fs-5 fw-light">
-                                    {{ $limitedText = Str::limit($fkt->deskripsi, 150) }}
-                                    @if (strlen($limitedText) > 150)
-                                        {{ $limitedText }}
-                                    @endif
-                                </p>
-                                <div class="card-body">
-                                    <a href="{{ route('post.detail', $fkt->slug) }}" class="btn bg-primary text-white fw-bold">Selengkapnya</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @empty
-                <div class="col-lg-6">
-                    <div class="bg-danger p-4 rounded text-white  fw-bold   text-center">
-                        Data Fakultas Masih Kosong <i class="fa fa-exclamation"></i>
-                    </div>
-                </div>
-            @endforelse
-        </div>
-    </section>
     <section class="portofolio mt-4 py-4 container">
         <h4 class="text-center mb-4"><span class="fw-bold bg-primary text-white p-2 rounded-4">Galery</span></h4>
         <div class="row justify-content-center">
@@ -182,9 +145,65 @@
             @endif
         </div>
     </section>
-    
+    <section class="mt-4 py-4 container">
+        <h4 class="text-center mb-4"><span class="fw-bold bg-primary text-white p-2 rounded-4">File Document</span></h4>
+        <div class="row justify-content-center rounded">
+            <div class="col-lg-12">
+                <div class="card border-0 rounded-4">
+                    <div class="card-body">
+                        <table class="table"  id="table1">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nama Document</th>
+                                    <th scope="col">Tipe File</th>   
+                                    <th scope="col">Download</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($fileManager as $d)
+                                    <tr>
+                                    
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $d->title }}</td>
+                                        <td>
+                                            @if (substr(strrchr($d->file_path, "."), 1) == "pdf")
+                                                PDF
+                                                <i class="bi bi-file-pdf-fill text-danger"></i>
+                                            @endif
+                                            @if (substr(strrchr($d->file_path, "."), 1) == "docx")
+                                                DOCX
+                                                <i class="bi bi-file-word-fill text-primary"></i>
+                                            @endif
+                                            @if (substr(strrchr($d->file_path, "."), 1) == "xlsx")
+                                                EXCEL
+                                                <i class="bi bi-file-excel-fill text-success"></i>
+                                            @endif
+                                            @if (substr(strrchr($d->file_path, "."), 1) == "pptx")
+                                                POWERPOINT
+                                                <i class="bi bi-file-powerpoint-fill text-warning"></i>
+                                            @endif
+                                            
+                                        </td>
+                                        <td>
+                                            
+                                                <a href="{{Route('file-manager.download',$d->uuid)}}" style="text-decoration:none;" class="badge bg-success border-0">
+                                                    Download
+                                                </a>
+                                            
+                                        </td>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="{{ asset('template/vendor/swiper.min.js') }}"></script>
     <script src="{{ asset('template/assets/extensions/toastify-js/src/toastify.js') }}"></script>
+    <script src="{{ asset('template/assets/extensions/simple-datatables/umd/simple-datatables.js')}}"></script>    
+    <script src="{{ asset('template/assets/js/pages/simple-datatables.js')}}"></script>
     <script>
        const alertError = () => 
        {

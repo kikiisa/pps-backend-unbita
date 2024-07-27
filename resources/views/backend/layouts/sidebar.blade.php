@@ -64,7 +64,7 @@
                 </li>
                 <li class="sidebar-item {{ Route::current()->getName() == 'image.index' ? 'active' : '' }}">
                     <a href="{{ Route('image.index') }}" class='sidebar-link'>
-                        <i class="bi bi-files"></i>
+                        <i class="bi bi-image"></i>
                         <span>Master Image</span>
                     </a>
                 </li>
@@ -72,6 +72,12 @@
                     <a href="{{ Route('management-prodi.index') }}" class='sidebar-link'>
                         <i class="bi bi-box"></i>
                         <span>Data Prodi</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ Route('file-manager.index') }}" class='sidebar-link'>
+                        <i class="bi bi-files"></i>
+                        <span>File Manager</span>
                     </a>
                 </li>
                 <li class="sidebar-title">Pengaturan</li>

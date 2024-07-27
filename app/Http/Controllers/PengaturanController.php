@@ -109,6 +109,7 @@ class PengaturanController extends Controller
             if ($data) {
                 return redirect()->route('pengaturan.index')->with('success', 'Pengaturan updated successfully');
             } else {
+                
                 return redirect()->back()->with('error', 'Something went wrong');
             }
         } else {

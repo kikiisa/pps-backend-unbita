@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FileManager;
 use App\Models\Pengaturan;
 use App\Models\Post;
 use App\Models\Prodi;
@@ -17,6 +18,7 @@ class BerandaController extends Controller
       
         $app = Pengaturan::all()->first();
         $prodi = Prodi::all()->take(3);
+        $fileManager = FileManager::all();
         if ($request->has('q')) {
             $query = $request->q;
             $post = Post::where('category', 'post')
@@ -26,13 +28,13 @@ class BerandaController extends Controller
                         })
                         ->paginate(10);
     
-            return response()->view('frontend.artikel.index', compact('app', 'post','prodi'));
+            return response()->view('frontend.artikel.index', compact('app', 'post','prodi','fileManager'));
         }
         $post = Post::where('category','post')->paginate(3);
-        $fakultas = Post::latest()->where('category','fakultas');
+        
         $slider = Slider::all()->where('status','active');
 
-        return response()->view('frontend.home.index',compact('app','post','fakultas','slider','prodi'));
+        return response()->view('frontend.home.index',compact('app','post','slider','prodi','fileManager'));
     }
 
     public function artikel(Request $request)

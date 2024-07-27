@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FileManagerController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PostController;
@@ -32,6 +33,7 @@ Route::get('/post/{slug}',[PostController::class,'show'])->name('post.detail');
 Route::get('/tentang-kami',[PengaturanController::class,'about'])->name('about');
 Route::get('/artikel',[BerandaController::class,'artikel'])->name('artikel');
 Route::get("/informasi/{slug}",[BerandaController::class,"informasi"])->name("information");
+Route::get("download-file/{id}",[FileManagerController::class,"download"])->name("file-manager.download");
 
 
 Route::prefix('account')->group(function(){
@@ -43,5 +45,6 @@ Route::prefix('account')->group(function(){
         Route::resource('slider',SliderController::class);
         Route::resource('image',ImageController::class);
         Route::resource("management-prodi",ProdiController::class);
+        Route::resource("file-manager",FileManagerController::class);
     });
 });
