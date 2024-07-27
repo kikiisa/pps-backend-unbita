@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\FileManager;
 use Illuminate\Support\Str;
 use App\Models\Image;
 use App\Models\Prodi;
@@ -29,7 +31,8 @@ class ProdiController extends Controller
     public function create()
     {
         return response()->view("backend.prodi.create",[
-            "image" => Image::paginate(10)
+            "image" => Image::paginate(10),
+            "files" => FileManager::all(),
         ]);
     }
 

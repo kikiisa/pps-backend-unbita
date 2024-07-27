@@ -6,7 +6,12 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            
+                            <a href="javascript:void(0)" class="mb-3 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#add">
+                                Input Gambar
+                            </a>
+                            <a href="javascript:void(0)" class="mb-3 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#file">
+                                Input File
+                            </a>
                             <form method="POST" action="{{Route("management-prodi.store")}}">
                                 @csrf
                                 @method("POST")
@@ -17,9 +22,7 @@
                                 <div class="form-group">
                                     <label for="logo">Logo</label>
                                     <input type="text" placeholder="Link Gambar" class="form-control" id="logo" name="logo">
-                                    <a href="javascript:void(0)" class="mt-1 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#add">
-                                        Tambah Gambar
-                                    </a>
+                                   
                                 </div>
                                 <div class="form-group">
                                     <label for="menu">Menu</label>
@@ -36,16 +39,12 @@
                                 <div class="form-group">
                                     <label for="gambar">Gambar</label>
                                     <input type="text" class="form-control" id="gambar" name="gambar" placeholder="Masukkan URL gambar">
-                                    <a href="javascript:void(0)" class="mt-1 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#add">
-                                        Tambah Gambar
-                                    </a>
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label for="struktur">Struktur</label>
                                     <input type="text" class="form-control" id="struktur" name="struktur" placeholder="Masukkan struktur">
-                                    <a href="javascript:void(0)" class="mt-1 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#add">
-                                        Tambah Gambar
-                                    </a>
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi</label>
@@ -73,6 +72,7 @@
         </div>
     </section>
     @include('backend.components.modal-image')
+    @include('backend.components.modal-file')
     
     <script src="{{asset('template/vendor/jquery.min.js')}}"></script>
     <script src="{{asset('template/vendor/summernote/summernote.min.js')}}"></script>
@@ -91,7 +91,7 @@
                 close: true,
                 backgroundColor: "#19C37D",
             }).showToast();
-        }
+        };
     </script>
     <script src="{{ asset('template/assets/extensions/toastify-js/src/toastify.js') }}"></script>
     @if (count($errors) > 0)
