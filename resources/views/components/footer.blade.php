@@ -8,21 +8,19 @@
                 <h6 class="text-white fw-bold">Visi Dan Misi</h6>
                 <h6 class="text-white"><i>{{$app->visi_misi}}</i></h6>
                 <h6 class="fw-bold text-white">Social Media</h6>
-                <a style="text-decoration: none;color:white;" class="ms-2" href="{{$app->instagram}}">
+                <a style="text-decoration: none;color:white;" class="ms-3" href="{{$app->instagram}}">
                     <i class="fa-brands fa-instagram text-white fa-2x"></i>
                 </a>
-                <a style="text-decoration: none;color:white;" class="ms-2" href="{{$app->tiktok}}">
+                <a style="text-decoration: none;color:white;" class="ms-3" href="{{$app->tiktok}}">
                     <i class="fa-brands fa-tiktok text-white fa-2x"></i>
                 </a>
-                <a style="text-decoration: none;color:white;" class="ms-2" href="{{$app->facebook}}">
+                <a style="text-decoration: none;color:white;" class="ms-3" href="{{$app->facebook}}">
                     <i class="fa-brands fa-facebook text-white fa-2x"></i>
                 </a>
-                <a style="text-decoration: none;color:white;" class="ms-2" href="{{$app->youtube}}">
+                <a style="text-decoration: none;color:white;" class="ms-3" href="{{$app->youtube}}">
                     <i class="fa-brands fa-youtube text-white fa-2x"></i>
                 </a>
-                <a style="text-decoration: none;color:white;" class="ms-2" href="{{$app->whatsapp}}">
-                    <i class="fa-brands fa-whatsapp text-white fa-2x"></i>
-                </a>
+                
             </div>
             <div class="col-lg-4 col-12 text-start py-4 content-footer">
                 <h2 class="fw-bold text-white title-website">

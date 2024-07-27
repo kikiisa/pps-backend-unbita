@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-navbar" href="{{ Route('artikel') }}">Artikel</a>
+                    <a class="nav-link text-navbar" href="{{ Route('artikel') }}">Berita</a>
                 </li>
                 @foreach ($prodi as $prd)
                     <li class="nav-item">

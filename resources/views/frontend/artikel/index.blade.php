@@ -1,6 +1,17 @@
 @extends('frontend.layouts.master', ['judul' => 'PPS - Artikel'])
 @section('content')
-    <section class="artikel" style="margin-top: 120px">
+    <section class="hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mt-4 py-4 content-hero">
+                    <h2 class="fw-bold text-white title-website">
+                        Semua Berita
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="artikel">
         <div class="container p-4 rounded-3">
             @if ($post->count() > 0)
                 <div class="row justify-content-start">
