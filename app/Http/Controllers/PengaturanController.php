@@ -107,6 +107,7 @@ class PengaturanController extends Controller
                 'phone' => $request->phone,
                 'visi_misi' => $request->visi_misi,
                 'about' => $request->about,
+                'icon' => $this->path . '/' . $name,
                 'total_mahasiswa' => $request->total_mahasiswa,
                 'total_pengajar' => $request->total_pengajar,
                 'total_lulusan' => $request->total_lulusan,

@@ -19,21 +19,8 @@ class BerandaController extends Controller
         $app = Pengaturan::all()->first();
         $prodi = Prodi::all()->take(3);
         $fileManager = FileManager::all();
-        if ($request->has('q')) {
-            $query = $request->q;
-            $post = Post::where('category', 'post')
-                        ->where(function($q) use ($query) {
-                            $q->where('title', 'LIKE', '%' . $query . '%')
-                              ->orWhere('content', 'LIKE', '%' . $query . '%');
-                        })
-                        ->paginate(10);
-    
-            return response()->view('frontend.artikel.index', compact('app', 'post','prodi','fileManager'));
-        }
         $post = Post::where('category','post')->paginate(3);
-        
         $slider = Slider::all()->where('status','active');
-
         return response()->view('frontend.home.index',compact('app','post','slider','prodi','fileManager'));
     }
 
@@ -41,21 +28,8 @@ class BerandaController extends Controller
     {
         $app = Pengaturan::all()->first();
         $prodi = Prodi::all()->take(3);
-        
-        if ($request->has('q')) {
-            $query = $request->q;
-            $post = Post::where('category', 'post')
-                        ->where(function($q) use ($query) {
-                            $q->where('title', 'LIKE', '%' . $query . '%')
-                              ->orWhere('content', 'LIKE', '%' . $query . '%');
-                        })
-                        ->paginate(10);
-    
-            return response()->view('frontend.artikel.index', compact('app', 'post','prodi'));
-        }else{            
-            $post = Post::where('category','post')->paginate(10);
-            return response()->view('frontend.artikel.index',compact('app','post','prodi'));
-        }
+        $post = Post::where('category','post')->paginate(10);
+        return response()->view('frontend.artikel.index',compact('app','post','prodi'));
     }
 
     public function informasi($slug)
@@ -72,5 +46,24 @@ class BerandaController extends Controller
            
            "information" => $prodi->first() 
         ]);
+    }
+
+    public function search(Request $request)
+    {
+        $app = Pengaturan::all()->first();
+        $prodi = Prodi::all()->take(3);
+        $fileManager = FileManager::all();
+        if ($request->has('q')) {
+            $query = $request->q;
+            $post = Post::where('category', 'post')
+                        ->where(function($q) use ($query) {
+                            $q->where('title', 'LIKE', '%' . $query . '%')
+                              ->orWhere('content', 'LIKE', '%' . $query . '%');
+                        })
+                        ->paginate(10);
+            return response()->view('frontend.artikel.index', compact('app', 'post','prodi','fileManager'));
+        }
+        return redirect()->route("beranda");
+        
     }
 }

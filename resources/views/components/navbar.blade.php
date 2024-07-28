@@ -25,10 +25,17 @@
                 </li>
             </ul>
         </div>
-        <form class="d-flex mt-2 custom-form" method="GET">
+        <form class="d-flex mt-2 custom-form" action="{{Route('search')}}" method="POST">
+            @csrf
+            @method("POST")
             <input class="form-control me-2" required="true" name="q" type="search"
                 placeholder="Berita Apa Hari Ini ?" aria-label="Search">
             <button class="btn btn-dark" type="submit"><i class="fa fa-search"></i></button>
         </form>
+        {{-- <form class="d-flex mt-2 custom-form" method="GET">
+            <input class="form-control me-2" required="true" name="q" type="search"
+                placeholder="Berita Apa Hari Ini ?" aria-label="Search">
+            <button class="btn btn-dark" type="submit"><i class="fa fa-search"></i></button>
+        </form> --}}
     </div>
 </nav>
