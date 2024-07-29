@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Artisan;
 
 class BerandaController extends Controller
 {
-
+    public function __construct()
+    {
+        Artisan::call("optimize");
+        Artisan::call("cache:clear");
+        
+    }
     public function index(Request $request)
     {
       
@@ -50,6 +55,7 @@ class BerandaController extends Controller
 
     public function search(Request $request)
     {
+       
         $app = Pengaturan::all()->first();
         $prodi = Prodi::all()->take(3);
         $fileManager = FileManager::all();

@@ -54,7 +54,7 @@ class PostController extends Controller
         ]);
         $file = $request->file('image');
         $name = $file->hashName();
-        $file->move(public_path($this->path), $name);
+        $file->move($this->path,$name);
         $send = Post::create([
             'uuid' => Uuid::uuid4()->toString(),
             'title' => $request->title,
@@ -145,7 +145,7 @@ class PostController extends Controller
             File::delete($data->image);
             $file = $request->file("image");
             $nama = $file->hashName();
-            $file->move(public_path($this->path),$nama);
+            $file->move($this->path,$nama);
             $data->update([
                 'title' => $request->title,
                 'slug' => Str::slug($request->title),

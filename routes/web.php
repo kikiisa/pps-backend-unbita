@@ -29,7 +29,7 @@ Route::post('/login',[AuthController::class,'store'])->name('auth.store');
 Route::get('/logout',[AuthController::class,'logout'])->name('auth.logout');
 
 
-Route::post("/search",[BerandaController::class,'search'])->name('search');
+Route::get("/search",[BerandaController::class,'search'])->name('search.post');
 Route::get('/post/{slug}',[PostController::class,'show'])->name('post.detail');
 Route::get('/tentang-kami',[PengaturanController::class,'about'])->name('about');
 Route::get('/artikel',[BerandaController::class,'artikel'])->name('artikel');
