@@ -28,7 +28,7 @@
                 @endforeach
                 
                 <li class="nav-item">
-                    <a class="nav-link text-navbar" href="{{ Route('about') }}">Tentang Fais</a>
+                    <a class="nav-link text-navbar" href="{{ Route('about') }}">Tentang</a>
                 </li>
             </ul>
         </div>
@@ -36,7 +36,7 @@
             @csrf
             @method("GET")
             <input class="form-control me-2" type="search" required="true" name="q"
-                placeholder="Berita Apa Hari Ini ? test" aria-label="Search">
+                placeholder="Berita Apa Hari Ini ?" aria-label="Search">
             <button class="btn btn-dark"><i class="fa fa-search"></i></button>
         </form>
         {{-- <form class="d-flex mt-2 custom-form" method="GET">
