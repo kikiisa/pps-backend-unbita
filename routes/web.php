@@ -5,6 +5,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FileManagerController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProdiController;
@@ -23,11 +24,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get("main",[MaintenanceController::class,"index"]);
 Route::get('/',[BerandaController::class,'index'])->name('beranda');
 Route::get('/login',[AuthController::class,'index'])->name('auth');
 Route::post('/login',[AuthController::class,'store'])->name('auth.store');
 Route::get('/logout',[AuthController::class,'logout'])->name('auth.logout');
-
 
 Route::get("/search",[BerandaController::class,'search'])->name('search.post');
 Route::get('/post/{slug}',[PostController::class,'show'])->name('post.detail');
