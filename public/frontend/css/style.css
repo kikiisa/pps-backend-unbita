@@ -6,10 +6,10 @@ body {
 
 :root
 {
-    --bs-primary: #FFB200;
+    --bs-primary: #C63C51;
     --bs-primary-rgb: 104, 43, 224;
     --bs-secondary: #8950fc;
-    --bs-secondary-rgb: 137, 80, 252;
+    --bs-secondary-rgb: 137, 80, 25 2;
 }
 
 .bg-primary {
