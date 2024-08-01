@@ -28,10 +28,12 @@
                 </li>
             </ul>
         </div>
-        <form class="d-flex mt-2 custom-form" method="GET">
-            <input class="form-control me-2" required="true" name="q" type="search"
+        <form class="d-flex mt-2 custom-form" action="{{Route("search.post")}}"  method="POST">
+            @csrf
+            @method("GET")
+            <input class="form-control me-2" type="search" required="true" name="q"
                 placeholder="Berita Apa Hari Ini ?" aria-label="Search">
-            <button class="btn btn-dark" type="submit"><i class="fa fa-search"></i></button>
+            <button class="btn btn-dark"><i class="fa fa-search"></i></button>
         </form>
     </div>
 </nav>
