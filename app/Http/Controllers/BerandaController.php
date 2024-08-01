@@ -17,7 +17,7 @@ class BerandaController extends Controller
     {
       
         $app = Pengaturan::all()->first();
-        $prodi = Prodi::all()->take(3);
+        $prodi = Prodi::all();
         $fileManager = FileManager::all();
         if ($request->has('q')) {
             $query = $request->q;
@@ -40,7 +40,7 @@ class BerandaController extends Controller
     public function artikel(Request $request)
     {
         $app = Pengaturan::all()->first();
-        $prodi = Prodi::all()->take(3);
+        $prodi = Prodi::all();
         
         if ($request->has('q')) {
             $query = $request->q;
@@ -61,13 +61,14 @@ class BerandaController extends Controller
     public function informasi($slug)
     {
         $prodi = Prodi::all()->where("slug",$slug);
+        $program_studi = Prodi::all();
         if($prodi->isEmpty())
         {
             return abort(404);
         }
         $app = Pengaturan::all()->first();
         return response()->view('frontend.prodi.index',[
-           "prodi" => $prodi,
+           "prodi" => $program_studi,
            "app" => $app,
            
            "information" => $prodi->first() 
