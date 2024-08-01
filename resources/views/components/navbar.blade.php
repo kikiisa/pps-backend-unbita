@@ -2,13 +2,10 @@
     <div class="container">
         <a class="navbar-brand fw-bold" href="/">
             <img src="{{ asset($app->icon) }}" class="" width="40" alt="logo">
-
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Logo_Kampus_Merdeka_Kemendikbud.png/1200px-Logo_Kampus_Merdeka_Kemendikbud.png"
                 class="" width="50" alt="logo">
-
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg/330px-Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg.png"
                 class="" width="40" alt="logo">
-
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
