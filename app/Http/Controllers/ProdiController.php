@@ -107,6 +107,7 @@ class ProdiController extends Controller
         $data = Prodi::find($id);
         return response()->view("backend.prodi.edit",[
             "prodi" => $data,
+            "files" => FileManager::all(),
             "image"  => Image::paginate(10)
         ]);
     }
@@ -151,6 +152,13 @@ class ProdiController extends Controller
      */
     public function destroy($id)
     {
-        
+        $data = Prodi::findOrFail($id);
+        $data->delete();
+        if($data)
+        {
+            return redirect()->route("management-prodi.index")->with("success","Data Berhasil");
+        }else{
+            return redirect()->route("management-prodi.index")->with("error","Data Gagal");
+        }
     }
 }

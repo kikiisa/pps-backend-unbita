@@ -5,8 +5,8 @@
                 <h2 class="fw-bold text-white title-website">
                    {{$app->title}}
                 </h2>
-                <h6 class="text-white fw-bold">Visi Dan Misi</h6>
-                <h6 class="text-white"><i>Terwujudnya Fakultas Hukum dengan program studi Ilmu Hukum Bisnis yang progresif, inovatif modern dan mempunyai daya saing di bidang Hukum yang berlandaskan pada nilai-nilai Tridharma Perguruan Tinggi serta melahirkan lulusan yang yang berkualitas dan berkarakter yang berperan pada peningkatan kualitas hidup dan peradaban.</i></h6>
+                <h6 class="text-white fw-bold">Alamat</h6>
+                <h6 class="text-white">Jl. Jaksa Agung Suprapto No.34, Limba U Dua, Kota Sel., Kota Gorontalo, Gorontalo 96138</h6>
                 <h6 class="fw-bold text-white">Social Media</h6>
                 <a style="text-decoration: none;color:white;" class="ms-3" href="{{$app->instagram}}">
                     <i class="fa-brands fa-instagram text-white fa-2x"></i>

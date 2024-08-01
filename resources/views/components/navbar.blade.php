@@ -21,6 +21,16 @@
                 <li class="nav-item">
                     <a class="nav-link text-navbar" href="{{ Route('artikel') }}">Berita</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Program Studi
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
                 @foreach ($prodi as $prd)
                     <li class="nav-item">
                         <a class="nav-link text-navbar " href="{{Route('information',$prd->slug)}}">{{$prd->name}}</a>
