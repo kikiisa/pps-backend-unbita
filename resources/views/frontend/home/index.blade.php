@@ -28,7 +28,16 @@
     </section>
     <section class="bg-dark p-4 " id="statistik">
         <div class="row justify-content-center">
-            <h5 class="text-white content-hero text-center mb-2">VISI 2035 "Menjadi Fakultas yang Unggul dan Berdaya Saing dalam Pengembangan Bidang Keteknikan berbasis Potensi Kawasan di Wilayah Timur Indonesia"</h5>
+            <h5 class="text-white content-hero text-center mb-2">
+                <strong>Visi</strong>
+                Terwujudnya Fakultas Hukum dengan program studi Ilmu
+                Hukum Bisnis yang progresif, inovatif modern dan
+                mempunyai daya saing di bidang Hukum yang
+                berlandaskan pada nilai-nilai Tridharma Perguruan Tinggi
+                serta melahirkan lulusan yang yang berkualitas dan
+                berkarakter yang berperan pada peningkatan kualitas
+                hidup dan peradaban.
+            </h5>
             <div class="col-md-3 col-12 mt-3">
                 <div class="card card-custom">
                     <div class="card-body">
@@ -102,13 +111,12 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
                 @if ($post->previousPageUrl())
-                    <a href="{{ $post->previousPageUrl() }}" class="btn btn-warning text-white fw-bold"> <i class="fa fa-arrow-left"> </i> Prev</a>
+                    <a href="{{ $post->previousPageUrl() }}" class="btn btn-dark text-white fw-bold"> <i class="fa fa-arrow-left"> </i> Prev</a>
                 @endif
                 @if ($post->nextPageUrl())
-                    <a href="{{ $post->nextPageUrl() }}" class="btn btn-warning text-white fw-bold">Next <i class="fa fa-arrow-right"></i></a>
+                    <a href="{{ $post->nextPageUrl() }}" class="btn btn-dark text-white fw-bold">Next <i class="fa fa-arrow-right"></i></a>
                 @endif
             </div>
         @else

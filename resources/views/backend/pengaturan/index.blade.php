@@ -34,9 +34,11 @@
                                     <label for="icon">Icon Aplikasi</label>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="{{asset($data->icon)}}" alt="" srcset="">
+                                            
+                                            <img src="{{asset($data->icon)}}" width="90">
                                         </div>
                                     </div>
+                                    
                                     <input type="file" name="icon" id="icon" class="form-control-file">
                                 </div>
                                 <div class="form-group">

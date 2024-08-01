@@ -12,50 +12,29 @@ use Illuminate\Support\Facades\Artisan;
 
 class BerandaController extends Controller
 {
-
+    public function __construct()
+    {
+        Artisan::call("optimize");
+        Artisan::call("cache:clear");
+        
+    }
     public function index(Request $request)
     {
       
         $app = Pengaturan::all()->first();
         $prodi = Prodi::all();
         $fileManager = FileManager::all();
-        if ($request->has('q')) {
-            $query = $request->q;
-            $post = Post::where('category', 'post')
-                        ->where(function($q) use ($query) {
-                            $q->where('title', 'LIKE', '%' . $query . '%')
-                              ->orWhere('content', 'LIKE', '%' . $query . '%');
-                        })
-                        ->paginate(10);
-    
-            return response()->view('frontend.artikel.index', compact('app', 'post','prodi','fileManager'));
-        }
         $post = Post::where('category','post')->paginate(3);
-        
         $slider = Slider::all()->where('status','active');
-
         return response()->view('frontend.home.index',compact('app','post','slider','prodi','fileManager'));
     }
 
     public function artikel(Request $request)
     {
         $app = Pengaturan::all()->first();
-        $prodi = Prodi::all();
-        
-        if ($request->has('q')) {
-            $query = $request->q;
-            $post = Post::where('category', 'post')
-                        ->where(function($q) use ($query) {
-                            $q->where('title', 'LIKE', '%' . $query . '%')
-                              ->orWhere('content', 'LIKE', '%' . $query . '%');
-                        })
-                        ->paginate(10);
-    
-            return response()->view('frontend.artikel.index', compact('app', 'post','prodi'));
-        }else{            
-            $post = Post::where('category','post')->paginate(10);
-            return response()->view('frontend.artikel.index',compact('app','post','prodi'));
-        }
+        $prodi = Prodi::all()->take(3);
+        $post = Post::where('category','post')->paginate(10);
+        return response()->view('frontend.artikel.index',compact('app','post','prodi'));
     }
 
     public function informasi($slug)
@@ -73,5 +52,25 @@ class BerandaController extends Controller
            
            "information" => $prodi->first() 
         ]);
+    }
+
+    public function search(Request $request)
+    {
+       
+        $app = Pengaturan::all()->first();
+        $prodi = Prodi::all()->take(3);
+        $fileManager = FileManager::all();
+        if ($request->has('q')) {
+            $query = $request->q;
+            $post = Post::where('category', 'post')
+                        ->where(function($q) use ($query) {
+                            $q->where('title', 'LIKE', '%' . $query . '%')
+                              ->orWhere('content', 'LIKE', '%' . $query . '%');
+                        })
+                        ->paginate(10);
+            return response()->view('frontend.artikel.index', compact('app', 'post','prodi','fileManager'));
+        }
+        return redirect()->route("beranda");
+        
     }
 }

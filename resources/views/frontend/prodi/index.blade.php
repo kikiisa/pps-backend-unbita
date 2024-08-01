@@ -82,7 +82,7 @@
             <div class="row">
                 <div class="col-lg-6 mb-4 bg-white rounded-4">
                     <div class="container p-3 fs-4" style="text-align: justify;">
-                        <h5 class="fw-bold">Tentang Administrasi Bisnis</h5>
+                        <h5 class="fw-bold">Tentang {{$information->name}}</h5>
                         <hr>
                         {!! $information->deskripsi !!}
                     </div>
@@ -136,8 +136,8 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
-                                        <td>File Kurikulum</td>
-                                        <td><a href="{{ $information->dokumentKKU }}" class="btn btn-dark">Download</a>
+                                        <td>File Penjaminan Mutu</td>
+                                        <td><a href="{{ $information->dokumentPMU }}" class="btn btn-dark">Download</a>
                                         </td>
                                         <td>
                                             {{ $information->created_at->diffForHumans() }}

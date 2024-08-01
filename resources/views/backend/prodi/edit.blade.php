@@ -80,6 +80,7 @@
     <script>
         $(document).ready(function() {
             $('#editor').summernote();
+            $('#misi').summernote();
         });
     </script>
      <script>

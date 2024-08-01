@@ -21,6 +21,7 @@
     <meta name="twitter:title" content="{{$data->title}}">
     <meta name="twitter:description" content="{{$data->deskripsi}}">
     <meta name="twitter:image" content="{{asset($data->image)}}">
+
     <!-- Hreflang Tags untuk situs multibahasa atau multinasional -->
     <!-- Structured Data Markup -->
     <script type="application/ld+json">
@@ -108,8 +109,7 @@
             </div>
         </div>
     </section>
-    @include('components.footer')
-    
+    @include('components.footer')    
     <script src="{{ asset('frontend/vendor/fontawesome/js/all.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fontawesome/js/brands.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fontawesome/js/regular.min.js') }}"></script>
