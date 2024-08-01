@@ -22,7 +22,7 @@ class BerandaController extends Controller
     {
       
         $app = Pengaturan::all()->first();
-        $prodi = Prodi::all()->take(3);
+        $prodi = Prodi::all();
         $fileManager = FileManager::all();
         $post = Post::where('category','post')->paginate(3);
         $slider = Slider::all()->where('status','active');
@@ -40,13 +40,14 @@ class BerandaController extends Controller
     public function informasi($slug)
     {
         $prodi = Prodi::all()->where("slug",$slug);
+        $program_studi = Prodi::all();
         if($prodi->isEmpty())
         {
             return abort(404);
         }
         $app = Pengaturan::all()->first();
         return response()->view('frontend.prodi.index',[
-           "prodi" => $prodi,
+           "prodi" => $program_studi,
            "app" => $app,
            
            "information" => $prodi->first() 
