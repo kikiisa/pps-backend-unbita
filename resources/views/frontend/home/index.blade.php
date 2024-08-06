@@ -3,28 +3,7 @@
     <link rel="stylesheet" href="{{ asset('template/assets/extensions/simple-datatables/style.css')}}"/>
     <link rel="stylesheet" href="{{ asset('template/assets/css/pages/simple-datatables.css')}}" />
     <section class="hero">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center mt-4 py-4 content-hero">
-                    <h2 class="fw-bold text-white title-website">
-                        {{$app->title}}
-                    </h2>
-                    <h6 class="mt-3"><span class="bg-primary text-white p-2 rounded-4 fw-bold">UNIVERSITAS BINA TARUNA GORONTALO</span></h6>
-                   
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-2 col-4 content-hero mt-4 py-3">
-                    <img src="{{ asset('frontend/img/1.webp') }}" class="animasi" alt="" srcset="">
-                </div>
-                <div class="col-lg-2 col-4 content-hero">
-                    <img src="{{ asset('frontend/img/2.webp') }}" class="animasi" alt="" srcset="">
-                </div>
-                <div class="col-lg-2 col-4 content-hero mt-4 py-3">
-                    <img src="{{ asset('frontend/img/3.webp') }}" class="animasi" alt="" srcset="">
-                </div>
-            </div>
-        </div>
+        
     </section>
     <section class="bg-dark p-4 " id="statistik">
         <div class="row justify-content-center">
