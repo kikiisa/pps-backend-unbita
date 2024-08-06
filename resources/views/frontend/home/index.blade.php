@@ -194,7 +194,6 @@
                                                 style="text-decoration:none;" class="badge bg-success border-0">
                                                 Download
                                             </a>
-
                                         </td>
                                 @endforeach
                             </tbody>
