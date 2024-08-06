@@ -39,16 +39,22 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
+       
         $request->validate([
-        
+            'judul' => 'required',
+            'deskripsi' => 'required',
             'gambar' => 'required|mimes:jpeg,jpg,png,webp|max:2048',
+            'category' => 'required',
         ]);
         $gambar = $request->file('gambar');
         $name = $gambar->hashName();
         $gambar->move($this->path,$name);
         $data = Image::create([
-            'uuid' => Uuid::uuid4()->toString(),
-            'image' => $this->path.'/'.$name,   
+            'uuid' => Uuid::uuid4()->toString(), // Pastikan untuk mengimpor dan menggunakan Str jika belum
+            'judul' => $request->judul, // Variabel $judul berisi data judul yang ingin disimpan
+            'deskripsi' => $request->deskripsi, // Variabel $deskripsi berisi data deskripsi
+            'image' => $this->path . '/' . $name, // Path ke lokasi gambar
+            'category' => $request->category, // Variabel $category berisi data kategori
         ]);
         if($data)
         {

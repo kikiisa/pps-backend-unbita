@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->string('icon');
             $table->text('about');
+            $table->text("visi")->nullable();
             $table->text('visi_misi');
-            $table->string('phone');
+            $table->string('phone');    
             $table->string("total_mahasiswa");
             $table->string("total_pengajar");
             $table->string("total_lulusan");

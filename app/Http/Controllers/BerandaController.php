@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FileManager;
+use App\Models\Image;
 use App\Models\Pengaturan;
 use App\Models\Post;
 use App\Models\Prodi;
@@ -26,7 +27,9 @@ class BerandaController extends Controller
         $fileManager = FileManager::all();
         $post = Post::where('category','post')->paginate(3);
         $slider = Slider::all()->where('status','active');
-        return response()->view('frontend.home.index',compact('app','post','slider','prodi','fileManager'));
+        $image = Image::all()->where("category","image")->take(3);
+        $pimpinan = Image::all()->where("category","pimpinan");
+        return response()->view('frontend.home.index',compact('app','post','slider','prodi','fileManager',"image","pimpinan"));
     }
 
     public function artikel(Request $request)
