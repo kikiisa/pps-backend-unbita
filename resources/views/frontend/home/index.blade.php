@@ -207,7 +207,7 @@
     <section class="mt-4 py-4 container">
         <h4 class="text-center mb-4"><span class="fw-bold bg-primary text-white p-2 rounded-4">Pimpinan</span></h4>
         <div class="row justify-content-center">
-            @foreach ($pimpinan as $pmp)
+            @forelse ($pimpinan as $pmp)
                 <div class="col-lg-3 text-center mt-4">
                     <img src="{{$pmp->image}}"  class="rounded-circle"    style="object-fit:cover; width: 150px; height: 150px;"  alt="" srcset="">
                     <div class="mt-3 text-dark fw-bold p-2 rounded">
@@ -216,7 +216,13 @@
                         <small>{{$pmp->deskripsi}}</small>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="col-lg-6">
+                    <div class="bg-danger p-4 rounded text-white  fw-bold   text-center">
+                        Pimpinan Masih Kosong <i class="fa fa-exclamation"></i>
+                    </div>
+                </div>
+            @endforelse
         </div>
     </section>
     <script src="{{ asset('template/vendor/swiper.min.js') }}"></script>
