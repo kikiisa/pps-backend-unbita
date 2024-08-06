@@ -97,10 +97,7 @@
             </div>
         </div>
     </section>
-    <footer class="bg-primary">
-        <div class="container fw-bold text-white text-center py-3">Copyright &copy; 2023 Bina Taruna Gorontalo | Pusat
-            IT</div>
-    </footer>
+    @include('components.footer')
     <script src="{{ asset('frontend/vendor/fontawesome/js/all.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fontawesome/js/brands.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fontawesome/js/regular.min.js') }}"></script>
