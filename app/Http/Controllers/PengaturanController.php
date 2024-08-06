@@ -79,6 +79,7 @@ class PengaturanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $data = Pengaturan::all()->first();
         if ($request->hasFile("icon")) {
             $request->validate([
@@ -86,6 +87,7 @@ class PengaturanController extends Controller
                 'title' => 'required',
                 'deskripsi' => 'required',
                 'phone' => 'required',
+                'visi' => 'required',
                 'visi_misi' => 'required',
                 'about' => 'required',
                 'total_mahasiswa' => 'required',
@@ -105,6 +107,7 @@ class PengaturanController extends Controller
                 'title' => $request->title,
                 'deskripsi' => $request->deskripsi,
                 'phone' => $request->phone,
+                'visi' => $request->visi,
                 'visi_misi' => $request->visi_misi,
                 'about' => $request->about,
                 'icon' => $this->path . '/' . $name,
@@ -129,6 +132,7 @@ class PengaturanController extends Controller
                 'deskripsi' => 'required',
                 'phone' => 'required',
                 'visi_misi' => 'required',
+                'visi' => 'required',
                 'about' => 'required',
                 'total_mahasiswa' => 'required',
                 'total_pengajar' => 'required',
@@ -144,6 +148,7 @@ class PengaturanController extends Controller
                 'title' => $request->title,
                 'deskripsi' => $request->deskripsi,
                 'phone' => $request->phone,
+                'visi' => $request->visi,
                 'visi_misi' => $request->visi_misi,
                 'about' => $request->about,
                 'total_mahasiswa' => $request->total_mahasiswa,

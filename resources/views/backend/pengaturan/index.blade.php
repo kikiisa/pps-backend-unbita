@@ -21,9 +21,12 @@
                                     <label for="phone">Whatsapps</label>
                                     <input type="text" name="phone" value="{{$data->phone}}" class="form-control">
                                 </div>
-                                
                                 <div class="form-group">
-                                    <label for="visi_misi">Visi & Misi</label>
+                                    <label for="visi">Visi</label>
+                                    <textarea name="visi"  class="form-control">{{$data->visi}}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="visi_misi">Misi</label>
                                     <textarea name="visi_misi" class="form-control" id="visi_misi" cols="30" rows="10">{{$data->visi_misi}}</textarea>
                                 </div>
                                 <div class="form-group">

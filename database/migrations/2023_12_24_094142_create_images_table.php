@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
+            $table->string("judul");
+            $table->string("deskripsi");
             $table->string('image');
+            $table->enum("category",["pimpinan","image"]);
             $table->timestamps();
         });
     }

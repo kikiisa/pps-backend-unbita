@@ -61,8 +61,23 @@
                         @method('POST')
                         @csrf
                         <div class="form-group">
-                            <label for="gambar">Gambar</label>
-                            <input type="file" required name="gambar" id="gambar" class="form-control-file">
+                            <label for="judul">Judul</label>
+                            <input type="text" class="form-control" id="judul" name="judul" placeholder="Masukkan judul">
+                        </div>
+                        <div class="form-group">
+                            <label for="deskripsi">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" placeholder="Masukkan deskripsi"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" class="form-control-file" id="image" name="gambar">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Kategori</label>
+                            <select class="form-control" id="category" name="category">
+                                <option value="pimpinan">Pimpinan</option>
+                                <option value="image">Image</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
