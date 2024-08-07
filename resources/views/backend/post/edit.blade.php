@@ -25,7 +25,14 @@
                                         Tambah Gambar
                                     </a>
                                 </div>
-                                
+                                <div class="form-group">
+                                    <label for="category">Kategori</label>
+                                    <select name="category" id="category" class="form-control">
+                                        <option value="agenda" {{ $data->category == "agenda" ? 'selected' : '' }}>Agenda</option>
+                                        <option value="pengumuman" {{ $data->category == "pengumuman" ? 'selected' : '' }}>Pengumuman</option>
+                                        <option value="post" {{ $data->category == "post" ? 'selected' : '' }}>Post</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label for="">Cover</label>
                                     <input type="file" name="image" id="image" class="form-control-file">

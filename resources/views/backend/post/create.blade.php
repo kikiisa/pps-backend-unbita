@@ -16,16 +16,25 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="deskripsi">Deskripsi Post</label>
-                                    <textarea class="form-control" rows="3" cols="3" name="deskripsi" id="deskripsi" placeholder="Deskripsi Post"></textarea>
+                                    <textarea class="form-control" rows="3" cols="3" name="deskripsi" id="deskripsi"
+                                        placeholder="Deskripsi Post"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Content</label>
                                     <textarea name="content" id="summernote"></textarea>
-                                    <a href="javascript:void(0)" class="mt-1 btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#add">
+                                    <a href="javascript:void(0)" class="mt-1 btn btn-outline-primary block"
+                                        data-bs-toggle="modal" data-bs-target="#add">
                                         Tambah Gambar
                                     </a>
                                 </div>
-                               
+                                <div class="form-group">
+                                    <label for="category">Kategori</label>
+                                    <select name="category" id="category" class="form-control">
+                                        <option value="agenda">Agenda</option>
+                                        <option value="pengumuman">Pengumuman</option>
+                                        <option value="post">Post</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label for="">Cover</label>
                                     <input type="file" name="image" id="image" class="form-control-file">
@@ -38,10 +47,10 @@
             </div>
         </div>
     </section>
-   @include('backend.components.modal-image')
-   
+    @include('backend.components.modal-image')
+
     <script>
-        const  copyToClipboard = (text) => {
+        const copyToClipboard = (text) => {
             navigator.clipboard.writeText(text);
 
             Toastify({
@@ -52,8 +61,8 @@
             }).showToast();
         }
     </script>
-    <script src="{{asset('template/vendor/jquery.min.js')}}"></script>
-    <script src="{{asset('template/vendor/summernote/summernote.min.js')}}"></script>
+    <script src="{{ asset('template/vendor/jquery.min.js') }}"></script>
+    <script src="{{ asset('template/vendor/summernote/summernote.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('#summernote').summernote();

@@ -16,18 +16,14 @@
                 <li class="nav-item">
                     <a class="nav-link text-navbar" href="{{ Route('artikel') }}">Berita</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Program Pembelajaran
-                        </a>
-                        <ul class="dropdown-menu">
-                            @foreach ($prodi as $prd)
-                                <li><a class="dropdown-item"
-                                        href="{{ Route('information', $prd->slug) }}">{{ $prd->name }}</a></li>
-                            @endforeach
-                        </ul>
+                
+                <li class="nav-item">
+                    <a class="nav-link text-navbar" href="{{ Route('category','agenda') }}">Agenda</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-navbar" href="{{ Route('category','pengumuman') }}">Pengumuman</a>
+                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link text-navbar" href="{{ Route('about') }}">Tentang</a>
                 </li>

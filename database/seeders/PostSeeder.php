@@ -28,7 +28,7 @@ class PostSeeder extends Seeder
                 'content' => $faker->text,
                 'image' => "https://santrikoding.com/storage/posts/7793757a-f440-4647-9ce1-f5927a73fa16.webp", // Mengambil gambar dari CDN
                 'views' => $faker->numberBetween(0, 1000),
-                'category' => $faker->randomElement(['post', 'fakultas']),
+                'category' => $faker->randomElement(['post', 'agenda','pengumuman']),
             ]);
         }
     }

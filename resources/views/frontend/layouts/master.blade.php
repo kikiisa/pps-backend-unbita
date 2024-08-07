@@ -47,15 +47,8 @@
 <body>
 
     <header class="fixed-top">
-        <div class="bg-primary">
-            <div class="container d-none d-md-block">
-                <div class="text-start text-dark fw-light fs-6 p-2"><i class="fa fa-phone ms-2"></i>
-                    {{ $app->phone }}<i class="ms-3 fa fa-location-arrow"></i> Jl. Jaksa Agung Suprapto No. 40
-                    Kota Gorontalo, Provinsi Gorontalo
-                    Indonesia
-                </div>
-            </div>
-        </div>
+        
+        @include('components.information')
         @include('components.navbar')
     </header>
     @yield('content')
@@ -65,49 +58,7 @@
     <script src="{{ asset('frontend/vendor/fontawesome/js/regular.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fontawesome/js/solid.min.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
-    <script>
-        const navFakultas = document.querySelector(".navFakultas");
-        const pageFakultas = document.querySelector(".fakultas")
-        navFakultas.addEventListener("click", function(event) {
-            event.preventDefault()
-            if (pageFakultas) {
-                pageFakultas.scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                window.location.href = "/"
-            }
-        })
-
-
-        const navPortofolio = document.querySelector(".navPortofolio");
-        const pagePortofolio = document.querySelector(".portofolio")
-        navPortofolio.addEventListener("click", function(event) {
-            event.preventDefault()
-            if (pagePortofolio) {
-                pagePortofolio.scrollIntoView({
-                    behavior: "smooth"
-                })
-            } else {
-                window.location.href = "/"
-            }
-        })
-
-
-        const navKontak = document.querySelector(".navKontak");
-        const pageKontak = document.querySelector(".kontak")
-        navKontak.addEventListener("click", function(event) {
-            event.preventDefault()
-            if (pageKontak) {
-                pageKontak.scrollIntoView({
-                    behavior: "smooth"
-                })
-            } else {
-                window.location.href = "/"
-            }
-        })
-        console.log(pageFakultas, pagePortofolio, pageKontak);
-    </script>
+   
 </body>
 
 </html>

@@ -58,11 +58,11 @@
                     @endforeach
                 </div>
                 @if ($post->previousPageUrl())
-                    <a href="{{ $post->previousPageUrl() }}" class="btn btn-dark text-dark fw-bold"> <i
+                    <a href="{{ $post->previousPageUrl() }}" class="btn btn-dark fw-bold"> <i
                             class="fa fa-arrow-left"> </i> Prev</a>
                 @endif
                 @if ($post->nextPageUrl())
-                    <a href="{{ $post->nextPageUrl() }}" class="btn btn-dark text-dark fw-bold">Next <i
+                    <a href="{{ $post->nextPageUrl() }}" class="btn btn-dark fw-bold">Next <i
                             class="fa fa-arrow-right"></i></a>
                 @endif
             </div>

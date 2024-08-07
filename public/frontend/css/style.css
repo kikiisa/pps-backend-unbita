@@ -170,7 +170,7 @@ swiper-slide {
     border: 1px solid #ccc;
     margin: 1px;
     font-size: 30px;
-    color: white;
+    color: black;
     background-color: var(--bs-primary);
     text-decoration: none; /* Menghilangkan underline dari tautan */
 }

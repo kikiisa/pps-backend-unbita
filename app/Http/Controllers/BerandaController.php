@@ -49,11 +49,17 @@ class BerandaController extends Controller
         return response()->view('frontend.prodi.index',[
            "prodi" => $program_studi,
            "app" => $app,
-           
            "information" => $prodi->first() 
         ]);
     }
 
+    public function category($id)
+    {
+        $app = Pengaturan::all()->first();
+        $post = Post::where('category',$id)->paginate(10);
+        $category = $id;
+        return response()->view('frontend.kategori.index',compact('app','post','category'));
+    }
     public function search(Request $request)
     {
        

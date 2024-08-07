@@ -36,7 +36,7 @@
 
                                     <br>
                                     <a href="{{ route('post.detail', $pst->slug) }}"
-                                        class="bg-primary p-2 text-white fw-bold rounded"
+                                        class="bg-primary p-2 text-dark fw-bold rounded"
                                         style="text-decoration: none">Lihat Artikel</a>
                                 </div>
                             </div>

@@ -44,11 +44,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-           
+            'category' => 'required',
             'deskripsi' => 'required',
             'image' => 'required|file|mimes:png,webp,jpg,jpeg,gif|max:2048'
         ]);
@@ -62,7 +61,7 @@ class PostController extends Controller
             'content' => $request->content,
             'image' => $this->path . '/' . $name,
             'deskripsi' => $request->deskripsi,
-            'category' => "post",
+            'category' => $request->category,
             'views' => 0
         ]);
         if ($send) {
@@ -152,7 +151,7 @@ class PostController extends Controller
                 'content' => $request->content,
                 'image' => $this->path . '/' . $nama,
                 'deskripsi' => $request->deskripsi,
-                'category' => "post",
+                'category' => $request->category,
             ]);
             if($data)
             {

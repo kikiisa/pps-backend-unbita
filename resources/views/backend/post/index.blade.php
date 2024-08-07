@@ -27,10 +27,12 @@
                                             <td>{{$item->views}}</td>
                                             <td>{{$item->created_at}}</td>
                                             <td>
-                                                @if ($item->category == 'fakultas')
-                                                    <span class="badge bg-info">Informasi Fakultas</span>
+                                                @if ($item->category == 'post')
+                                                    <span class="badge bg-primary">Post</span>
+                                                @elseif ($item->category == 'agenda')
+                                                    <span class="badge bg-info">Agenda</span>
                                                 @else
-                                                    <span class="badge bg-primary">Post News</span>
+                                                    <span class="badge bg-warning">Pengumuman</span>
                                                 @endif
                                             </td>
                                             <td>

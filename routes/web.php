@@ -36,7 +36,7 @@ Route::get('/tentang-kami',[PengaturanController::class,'about'])->name('about')
 Route::get('/artikel',[BerandaController::class,'artikel'])->name('artikel');
 Route::get("/informasi/{slug}",[BerandaController::class,"informasi"])->name("information");
 Route::get("download-file/{id}",[FileManagerController::class,"download"])->name("file-manager.download");
-
+Route::get("/category/{id}",[BerandaController::class,"category"])->name("category");
 
 Route::prefix('account')->group(function(){
     Route::middleware('auth')->group(function(){

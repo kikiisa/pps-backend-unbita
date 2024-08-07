@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('image');
             $table->string('views')->default(0);
-            $table->enum('category',['post','fakultas']);
+            $table->enum('category',['post','agenda','pengumuman']);
             $table->timestamps();
         });
     }
