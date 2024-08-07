@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white border-1 border-bottom">
+<nav class="navbar navbar-expand-lg border-1 text-dark bg-white border-bottom">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/">
             <img src="{{ asset($app->icon) }}" class="" width="40" alt="logo">
@@ -19,7 +19,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Program Studi
+                        Program Pembelajaran
                         </a>
                         <ul class="dropdown-menu">
                             @foreach ($prodi as $prd)
